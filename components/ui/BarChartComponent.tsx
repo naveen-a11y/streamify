@@ -24,16 +24,9 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { chartData } from "@/data/sample-data";
 
 export const description = "A bar chart with a custom label";
-
-const chartData = [
-  { source: "Kal Ho Naa Ho", streams: 450 },
-  { source: "Senorita", streams: 375 },
-  { source: "Garmi", streams: 325 },
-  { source: "Shayad", streams: 275 },
-  { source: "Burj Khalifa", streams: 225 },
-];
 
 const chartConfig = {
   streams: {
@@ -49,14 +42,13 @@ export default function BarChartComponent() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Bar Chart - Top 5 Most Streamed Bollywood Songs</CardTitle>
-        <CardDescription>Top 5 most streamed Bollywood songs</CardDescription>
+        <CardTitle>Top 5 Most Streamed Songs</CardTitle>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
           <BarChart
             accessibilityLayer
-            data={chartData}
+            data={chartData.slice(0, 5)}
             layout="vertical"
             margin={{
               right: 16,
@@ -64,7 +56,7 @@ export default function BarChartComponent() {
           >
             <CartesianGrid horizontal={false} />
             <YAxis
-              dataKey="source"
+              dataKey="songName"
               type="category"
               tickLine={false}
               tickMargin={10}
@@ -72,26 +64,26 @@ export default function BarChartComponent() {
               tickFormatter={(value) => value}
               hide
             />
-            <XAxis dataKey="streams" type="number" hide />
+            <XAxis dataKey="streamCount" type="number" hide />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent indicator="line" />}
             />
             <Bar
-              dataKey="streams"
+              dataKey="streamCount"
               layout="vertical"
               fill="var(--color-streams)"
               radius={4}
             >
               <LabelList
-                dataKey="source"
+                dataKey="songName"
                 position="insideLeft"
                 offset={8}
                 className="fill-[--color-label]"
                 fontSize={12}
               />
               <LabelList
-                dataKey="streams"
+                dataKey="streamCount"
                 position="right"
                 offset={8}
                 className="fill-foreground"
@@ -104,7 +96,9 @@ export default function BarChartComponent() {
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
           Total streams:{" "}
-          {chartData.reduce((acc, curr) => acc + curr.streams, 0)}
+          {chartData
+            .slice(0, 5)
+            .reduce((acc, curr) => acc + curr.streamCount, 0)}
         </div>
         <div className="leading-none text-muted-foreground">
           Showing top 5 most streamed Bollywood songs

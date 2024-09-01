@@ -16,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header className="py-4 px-6 bg-black sticky top-0 z-50">
+          <h1 className="text-2xl font-bold text-white">Streamify</h1>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
