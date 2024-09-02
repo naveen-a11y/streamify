@@ -1,6 +1,6 @@
 import { reports } from "@/data/sample-data";
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "./card";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import Image from "next/image";
 
 export default function Reports() {

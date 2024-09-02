@@ -8,8 +8,8 @@ import {
   TableHead,
   TableRow,
   TableCell,
-} from "./table";
-import { Input } from "./input";
+} from "./ui/table";
+import { Input } from "./ui/input";
 import {
   Select,
   SelectContent,
@@ -17,11 +17,11 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./select";
+} from "./ui/select";
 import { ChartData } from "@/type";
 import { chartData } from "@/data/sample-data";
 
-function MyTable() {
+export default function SongsTable() {
   const [sort, setSort] = useState({ column: "streamCount", order: "desc" });
   const [filter, setFilter] = useState({ column: "songName", value: "" });
 
@@ -133,5 +133,3 @@ function MyTable() {
     </div>
   );
 }
-
-export default MyTable;

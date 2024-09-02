@@ -1,8 +1,8 @@
-import BarChartComponent from "@/components/ui/BarChartComponent";
-import { MultiLineChart } from "@/components/ui/MultiLineChart";
-import MyTable from "@/components/ui/MyTable";
-import PieChartComponent from "@/components/ui/PieChart";
-import Reports from "@/components/ui/Reports";
+import BarChartComponent from "@/components/BarChartComponent";
+import { MultiLineChart } from "@/components/MultiLineChart";
+import PieChartComponent from "@/components/PieChart";
+import Reports from "@/components/Reports";
+import SongsTable from "@/components/SongsTable";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
           <PieChartComponent />
           <BarChartComponent />
         </div>
-        <MyTable />
+        <SongsTable />
       </div>
     </main>
   );
